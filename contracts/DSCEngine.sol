@@ -47,6 +47,9 @@ contract DSCEngine is ReentrancyGuard {
     //////////////////
     uint256 private constant ADDITIONAL_FEED_PRECISION = 1e10;
     uint256 private constant PRECISION = 1e18;
+    uint256 private constant LIQUIDATION_TRESHOLD = 50;
+    uint256 private constant LIQUIDATION_PRECISION = 100;
+    uint256 private constant MIN_HEALTH_FACTOR = 1;
 
     DecentralizedStablecoin private immutable i_dsc;
 
@@ -166,11 +169,19 @@ contract DSCEngine is ReentrancyGuard {
     /// @notice If a user goes below 1, then they can get liquidated.
     function _healthFactor(address user) private view returns (uint256) {
         // Total DSC minted
-
         // Total collateral value
+        (uint256 totalDscMinted, uint256 collateralValueInUsd) = _getAccountInformation(user);
+        uint256 collateralAdjustedForTreshold = (collateralValueInUsd * LIQUIDATION_TRESHOLD) / LIQUIDATION_PRECISION;
+         
+
     }
     function _revertIfHealthFactorIsBroken(address user) internal view {
         // 1. Check health factor (do they have enough collateral ?)
         // 2. Revert if they don't
+        uint256 userHealthFactor = _healthFactor(user);
+        if (userHealthFactor < MIN_HEALTH_FACTOR) {
+            revert DSCEngine__BreaksHealthFactor(userHealthFactor);
+        }
+
     }
 }
