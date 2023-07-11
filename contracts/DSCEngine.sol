@@ -45,13 +45,15 @@ contract DSCEngine is ReentrancyGuard {
     ///////////////////
     // State Variables
     //////////////////
+    uint256 private constant ADDITIONAL_FEED_PRECISION = 1e10;
+    uint256 private constant PRECISION = 1e18;
+
     DecentralizedStablecoin private immutable i_dsc;
 
     mapping(address => address) private s_priceFeeds; // token to pricefee
     mapping(address => mapping(address => uint256)) private s_collateralDeposited; // user => token => amount
     mapping(address => uint256) private s_DSCMinted;
     address[] private s_collateralTokens;
-
 
     ///////////////////
     // Events
@@ -138,19 +140,18 @@ contract DSCEngine is ReentrancyGuard {
     function liquidate() external {}
     function getHealthFactor() external view {}
 
-    function getAccountCollateralValue(address user) public view returns (uint256) {
+    function getAccountCollateralValue(address user) public view returns (uint256 totalCollateralValueInUsd) {
         for (uint256 i = 0; i < s_collateralTokens.length; i++) {
             address token = s_collateralTokens[i];
             uint256 amount = s_collateralDeposited[user][token];
-
+            totalCollateralValueInUsd += getUsdValue(token, amount);
         }
-
     }
 
     function getUsdValue(address token, uint256 amount) public view returns (uint256) {
         AggregatorV3Interface priceFeed = AggregatorV3Interface(s_priceFeeds[token]);
-        
-
+        (, int256 price,,,) = priceFeed.latestRoundData();
+        return ((uint256(price) * ADDITIONAL_FEED_PRECISION) * amount) / PRECISION;
     }
 
     function _getAccountInformation(address user)
