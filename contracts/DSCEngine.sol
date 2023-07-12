@@ -63,6 +63,7 @@ contract DSCEngine is ReentrancyGuard {
     ///////////////////
 
     event CollateralDeposited(address indexed user, address indexed token, uint256 indexed amount);
+    event CollateralRedeemed(address indexed user, address indexed token, uint256 indexed amount);
 
     ///////////////////
     // Modifiers
@@ -103,18 +104,23 @@ contract DSCEngine is ReentrancyGuard {
     // Functions
     ///////////////////
 
-    /// @param tokenCollateralAddress: The ERC20 token address of the collateral you're depositing
-    /// @param amountCollateral: The amount of collateral you're depositing
+    /// @param tokenCollateralAddress The ERC20 token address of the collateral you're depositing
+    /// @param amountCollateral The amount of collateral you're depositing
+    /// @param amountDscToMint The amiunt of decentralized stabelcoin to mint
     /// @notice This function will deposit your collateral and mint DSC in one transaction
-    function depositCollateralAndMintDsc(address tokenCollateralAddress, uint256 amountCollateral)
-        external
-        moreThanZero(amountCollateral)
-    {}
+    function depositCollateralAndMintDsc(
+        address tokenCollateralAddress,
+        uint256 amountCollateral,
+        uint256 amountDscToMint
+    ) external {
+        depositCollateral(tokenCollateralAddress, amountCollateral);
+        mintDsc(amountDscToMint);
+    }
 
     /// @param tokenCollateralAddress: The ERC20 token address of the collateral you're depositing
     /// @param amountCollateral: The amount of collateral you're depositing
     function depositCollateral(address tokenCollateralAddress, uint256 amountCollateral)
-        external
+        public
         moreThanZero(amountCollateral)
         isAllowedToken(tokenCollateralAddress)
         nonReentrant
@@ -129,16 +135,28 @@ contract DSCEngine is ReentrancyGuard {
 
     function redeemCollateralForDsc() external {}
 
-    function redeemCollateral() external {}
+    function redeemCollateral(address tokenCollateralAddress, uint256 amountCollateral)
+        external
+        moreThanZero(amountCollateral)
+        nonReentrant
+    {
+        s_collateralDeposited[msg.sender][tokenCollateralAddress] -= amountCollateral;
+        emit CollateralRedeemed(msg.sender, tokenCollateralAddress, amountCollateral);
+        bool success = IERC20(tokenCollateralAddress).transfer(msg.sender, amountCollateral);
+        if (!success) {
+            revert DSCEngine__TransferFailed();
+        }
+        _revertIfHealthFactorIsBroken(msg.sender);
+    }
 
     /// @notice Follows CEI
     /// @param amountDscToMint The amount of decentralized stablecoin to mint
     /// @notice They must have more collateral value than the minimum treshold
-    function mintDsc(uint256 amountDscToMint) external moreThanZero(amountDscToMint) nonReentrant {
+    function mintDsc(uint256 amountDscToMint) public moreThanZero(amountDscToMint) nonReentrant {
         s_DSCMinted[msg.sender] += amountDscToMint;
         _revertIfHealthFactorIsBroken(msg.sender);
         bool minted = i_dsc.mint(msg.sender, amountDscToMint);
-        if (!minted) { 
+        if (!minted) {
             revert DSCEngine__MintFailed();
         }
     }
@@ -176,9 +194,8 @@ contract DSCEngine is ReentrancyGuard {
         // Total collateral value
         (uint256 totalDscMinted, uint256 collateralValueInUsd) = _getAccountInformation(user);
         uint256 collateralAdjustedForTreshold = (collateralValueInUsd * LIQUIDATION_TRESHOLD) / LIQUIDATION_PRECISION;
-         
-
     }
+
     function _revertIfHealthFactorIsBroken(address user) internal view {
         // 1. Check health factor (do they have enough collateral ?)
         // 2. Revert if they don't
@@ -186,6 +203,5 @@ contract DSCEngine is ReentrancyGuard {
         if (userHealthFactor < MIN_HEALTH_FACTOR) {
             revert DSCEngine__BreaksHealthFactor(userHealthFactor);
         }
-
     }
 }

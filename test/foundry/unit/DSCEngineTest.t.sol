@@ -10,7 +10,6 @@ import {DecentralizedStablecoin} from "../../../contracts/DecentralizedStablecoi
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 contract DSCEngineTest is Test {
-
     // Contract instances
     DSCEngine dscEngine;
     DecentralizedStablecoin dsc;
@@ -43,16 +42,13 @@ contract DSCEngineTest is Test {
         // Fund user with tokens
         deal(WETH, USER, 1_000 ether);
         deal(WBTC, USER, 1_000e18);
-
     }
 
     function test_dscEngine_init() public {
         assertEq(dscEngine.s_priceFeeds(WETH), wethPriceFeed);
-
     }
 
-
-    ////////////////////////// 
+    //////////////////////////
     // Price Tests
     //////////////////////////
 
@@ -62,7 +58,7 @@ contract DSCEngineTest is Test {
         emit log_named_uint("USD value:", actualUsd);
     }
 
-    ////////////////////////// 
+    //////////////////////////
     // depositCollateral tests
     //////////////////////////
 
@@ -75,6 +71,4 @@ contract DSCEngineTest is Test {
         dscEngine.depositCollateral(WETH, 0);
         vm.stopPrank();
     }
-
-
 }
