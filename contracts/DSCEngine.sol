@@ -53,7 +53,7 @@ contract DSCEngine is ReentrancyGuard {
 
     DecentralizedStablecoin private immutable i_dsc;
 
-    mapping(address => address) private s_priceFeeds; // token to pricefee
+    mapping(address => address) public s_priceFeeds; // token to pricefee
     mapping(address => mapping(address => uint256)) private s_collateralDeposited; // user => token => amount
     mapping(address => uint256) private s_DSCMinted;
     address[] private s_collateralTokens;
@@ -137,6 +137,10 @@ contract DSCEngine is ReentrancyGuard {
     function mintDsc(uint256 amountDscToMint) external moreThanZero(amountDscToMint) nonReentrant {
         s_DSCMinted[msg.sender] += amountDscToMint;
         _revertIfHealthFactorIsBroken(msg.sender);
+        bool minted = i_dsc.mint(msg.sender, amountDscToMint);
+        if (!minted) { 
+            revert DSCEngine__MintFailed();
+        }
     }
 
     function burnDsc() external {}
