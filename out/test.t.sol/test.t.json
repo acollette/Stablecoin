@@ -10,44 +10,44 @@
   },
   "ast": {
     "absolutePath": "test/foundry/test.t.sol",
-    "id": 23086,
+    "id": 23364,
     "exportedSymbols": {
       "DSTest": [
-        2335
+        2613
       ],
       "Script": [
-        2571
+        2849
       ],
       "StdStorage": [
-        4103
+        4381
       ],
       "Test": [
-        4005
+        4283
       ],
       "Vm": [
-        5973
+        6251
       ],
       "console": [
-        14037
+        14315
       ],
       "console2": [
-        22101
+        22379
       ],
       "stdError": [
-        4075
+        4353
       ],
       "stdMath": [
-        5344
+        5622
       ],
       "stdStorage": [
-        5205
+        5483
       ]
     },
     "nodeType": "SourceUnit",
     "src": "39:131:16",
     "nodes": [
       {
-        "id": 23083,
+        "id": 23361,
         "nodeType": "PragmaDirective",
         "src": "39:24:16",
         "nodes": [],
@@ -59,28 +59,28 @@
         ]
       },
       {
-        "id": 23084,
+        "id": 23362,
         "nodeType": "ImportDirective",
         "src": "86:42:16",
         "nodes": [],
         "absolutePath": "lib/forge-std/src/Test.sol",
         "file": "../../lib/forge-std/src/Test.sol",
         "nameLocation": "-1:-1:-1",
-        "scope": 23086,
-        "sourceUnit": 5345,
+        "scope": 23364,
+        "sourceUnit": 5623,
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "id": 23085,
+        "id": 23363,
         "nodeType": "ImportDirective",
         "src": "129:40:16",
         "nodes": [],
         "absolutePath": "lib/forge-std/src/Vm.sol",
         "file": "../../lib/forge-std/src/Vm.sol",
         "nameLocation": "-1:-1:-1",
-        "scope": 23086,
-        "sourceUnit": 5974,
+        "scope": 23364,
+        "sourceUnit": 6252,
         "symbolAliases": [],
         "unitAlias": ""
       }

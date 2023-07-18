@@ -13,8 +13,8 @@
   },
   "files": {
     "contracts/DSCEngine.sol": {
-      "lastModificationDate": 1689170516726,
-      "contentHash": "a3a9c70c8f51b36d3fcd2342996bd7bc",
+      "lastModificationDate": 1689670846133,
+      "contentHash": "82fe0b0b7709b6478b73c71541fac07c",
       "sourceName": "contracts/DSCEngine.sol",
       "solcConfig": {
         "settings": {
@@ -23,6 +23,7 @@
             "runs": 200
           },
           "metadata": {
+            "useLiteralContent": false,
             "bytecodeHash": "ipfs",
             "appendCBOR": true
           },
@@ -40,7 +41,7 @@
               ]
             }
           },
-          "evmVersion": "london",
+          "evmVersion": "paris",
           "libraries": {}
         }
       },
@@ -55,16 +56,16 @@
         "node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
         "node_modules/@openzeppelin/contracts/utils/Context.sol"
       ],
-      "versionRequirement": "^0.8.17",
+      "versionRequirement": "^0.8.18",
       "artifacts": {
         "DSCEngine": {
-          "0.8.17+commit.8df45f5f.Darwin.appleclang": "DSCEngine.sol/DSCEngine.json"
+          "0.8.20+commit.a1b79de6.Darwin.appleclang": "DSCEngine.sol/DSCEngine.json"
         }
       }
     },
     "contracts/DecentralizedStablecoin.sol": {
-      "lastModificationDate": 1689064611218,
-      "contentHash": "5b882db9da9c9a784aca52e2f971719a",
+      "lastModificationDate": 1689670850095,
+      "contentHash": "1df60c127cc4db700e0e8fe169b46705",
       "sourceName": "contracts/DecentralizedStablecoin.sol",
       "solcConfig": {
         "settings": {
@@ -73,6 +74,7 @@
             "runs": 200
           },
           "metadata": {
+            "useLiteralContent": false,
             "bytecodeHash": "ipfs",
             "appendCBOR": true
           },
@@ -90,7 +92,7 @@
               ]
             }
           },
-          "evmVersion": "london",
+          "evmVersion": "paris",
           "libraries": {}
         }
       },
@@ -102,10 +104,10 @@
         "node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
         "node_modules/@openzeppelin/contracts/utils/Context.sol"
       ],
-      "versionRequirement": "^0.8.17",
+      "versionRequirement": "^0.8.18",
       "artifacts": {
         "DecentralizedStablecoin": {
-          "0.8.17+commit.8df45f5f.Darwin.appleclang": "DecentralizedStablecoin.sol/DecentralizedStablecoin.json"
+          "0.8.20+commit.a1b79de6.Darwin.appleclang": "DecentralizedStablecoin.sol/DecentralizedStablecoin.json"
         }
       }
     },
@@ -120,6 +122,7 @@
             "runs": 200
           },
           "metadata": {
+            "useLiteralContent": false,
             "bytecodeHash": "ipfs",
             "appendCBOR": true
           },
@@ -137,7 +140,7 @@
               ]
             }
           },
-          "evmVersion": "london",
+          "evmVersion": "paris",
           "libraries": {}
         }
       },
@@ -145,7 +148,7 @@
       "versionRequirement": ">=0.5.0",
       "artifacts": {
         "DSTest": {
-          "0.8.17+commit.8df45f5f.Darwin.appleclang": "test.sol/DSTest.json"
+          "0.8.20+commit.a1b79de6.Darwin.appleclang": "test.sol/DSTest.json"
         }
       }
     },
@@ -160,6 +163,7 @@
             "runs": 200
           },
           "metadata": {
+            "useLiteralContent": false,
             "bytecodeHash": "ipfs",
             "appendCBOR": true
           },
@@ -177,7 +181,7 @@
               ]
             }
           },
-          "evmVersion": "london",
+          "evmVersion": "paris",
           "libraries": {}
         }
       },
@@ -189,7 +193,7 @@
       "versionRequirement": ">=0.6.0, <0.9.0",
       "artifacts": {
         "Script": {
-          "0.8.17+commit.8df45f5f.Darwin.appleclang": "Script.sol/Script.json"
+          "0.8.20+commit.a1b79de6.Darwin.appleclang": "Script.sol/Script.json"
         }
       }
     },
@@ -204,6 +208,7 @@
             "runs": 200
           },
           "metadata": {
+            "useLiteralContent": false,
             "bytecodeHash": "ipfs",
             "appendCBOR": true
           },
@@ -221,7 +226,7 @@
               ]
             }
           },
-          "evmVersion": "london",
+          "evmVersion": "paris",
           "libraries": {}
         }
       },
@@ -235,16 +240,16 @@
       "versionRequirement": ">=0.6.0, <0.9.0",
       "artifacts": {
         "Test": {
-          "0.8.17+commit.8df45f5f.Darwin.appleclang": "Test.sol/Test.json"
+          "0.8.20+commit.a1b79de6.Darwin.appleclang": "Test.sol/Test.json"
         },
         "stdError": {
-          "0.8.17+commit.8df45f5f.Darwin.appleclang": "Test.sol/stdError.json"
+          "0.8.20+commit.a1b79de6.Darwin.appleclang": "Test.sol/stdError.json"
         },
         "stdMath": {
-          "0.8.17+commit.8df45f5f.Darwin.appleclang": "Test.sol/stdMath.json"
+          "0.8.20+commit.a1b79de6.Darwin.appleclang": "Test.sol/stdMath.json"
         },
         "stdStorage": {
-          "0.8.17+commit.8df45f5f.Darwin.appleclang": "Test.sol/stdStorage.json"
+          "0.8.20+commit.a1b79de6.Darwin.appleclang": "Test.sol/stdStorage.json"
         }
       }
     },
@@ -259,6 +264,7 @@
             "runs": 200
           },
           "metadata": {
+            "useLiteralContent": false,
             "bytecodeHash": "ipfs",
             "appendCBOR": true
           },
@@ -276,7 +282,7 @@
               ]
             }
           },
-          "evmVersion": "london",
+          "evmVersion": "paris",
           "libraries": {}
         }
       },
@@ -284,7 +290,7 @@
       "versionRequirement": ">=0.6.0, <0.9.0",
       "artifacts": {
         "Vm": {
-          "0.8.17+commit.8df45f5f.Darwin.appleclang": "Vm.sol/Vm.json"
+          "0.8.20+commit.a1b79de6.Darwin.appleclang": "Vm.sol/Vm.json"
         }
       }
     },
@@ -299,6 +305,7 @@
             "runs": 200
           },
           "metadata": {
+            "useLiteralContent": false,
             "bytecodeHash": "ipfs",
             "appendCBOR": true
           },
@@ -316,7 +323,7 @@
               ]
             }
           },
-          "evmVersion": "london",
+          "evmVersion": "paris",
           "libraries": {}
         }
       },
@@ -324,7 +331,7 @@
       "versionRequirement": ">=0.4.22, <0.9.0",
       "artifacts": {
         "console": {
-          "0.8.17+commit.8df45f5f.Darwin.appleclang": "console.sol/console.json"
+          "0.8.20+commit.a1b79de6.Darwin.appleclang": "console.sol/console.json"
         }
       }
     },
@@ -339,6 +346,7 @@
             "runs": 200
           },
           "metadata": {
+            "useLiteralContent": false,
             "bytecodeHash": "ipfs",
             "appendCBOR": true
           },
@@ -356,7 +364,7 @@
               ]
             }
           },
-          "evmVersion": "london",
+          "evmVersion": "paris",
           "libraries": {}
         }
       },
@@ -364,7 +372,7 @@
       "versionRequirement": ">=0.4.22, <0.9.0",
       "artifacts": {
         "console2": {
-          "0.8.17+commit.8df45f5f.Darwin.appleclang": "console2.sol/console2.json"
+          "0.8.20+commit.a1b79de6.Darwin.appleclang": "console2.sol/console2.json"
         }
       }
     },
@@ -379,6 +387,7 @@
             "runs": 200
           },
           "metadata": {
+            "useLiteralContent": false,
             "bytecodeHash": "ipfs",
             "appendCBOR": true
           },
@@ -396,7 +405,7 @@
               ]
             }
           },
-          "evmVersion": "london",
+          "evmVersion": "paris",
           "libraries": {}
         }
       },
@@ -404,7 +413,7 @@
       "versionRequirement": "^0.8.0",
       "artifacts": {
         "AggregatorV3Interface": {
-          "0.8.17+commit.8df45f5f.Darwin.appleclang": "AggregatorV3Interface.sol/AggregatorV3Interface.json"
+          "0.8.20+commit.a1b79de6.Darwin.appleclang": "AggregatorV3Interface.sol/AggregatorV3Interface.json"
         }
       }
     },
@@ -419,6 +428,7 @@
             "runs": 200
           },
           "metadata": {
+            "useLiteralContent": false,
             "bytecodeHash": "ipfs",
             "appendCBOR": true
           },
@@ -436,7 +446,7 @@
               ]
             }
           },
-          "evmVersion": "london",
+          "evmVersion": "paris",
           "libraries": {}
         }
       },
@@ -446,7 +456,7 @@
       "versionRequirement": "^0.8.0",
       "artifacts": {
         "Ownable": {
-          "0.8.17+commit.8df45f5f.Darwin.appleclang": "Ownable.sol/Ownable.json"
+          "0.8.20+commit.a1b79de6.Darwin.appleclang": "Ownable.sol/Ownable.json"
         }
       }
     },
@@ -461,6 +471,7 @@
             "runs": 200
           },
           "metadata": {
+            "useLiteralContent": false,
             "bytecodeHash": "ipfs",
             "appendCBOR": true
           },
@@ -478,7 +489,7 @@
               ]
             }
           },
-          "evmVersion": "london",
+          "evmVersion": "paris",
           "libraries": {}
         }
       },
@@ -486,7 +497,7 @@
       "versionRequirement": "^0.8.0",
       "artifacts": {
         "ReentrancyGuard": {
-          "0.8.17+commit.8df45f5f.Darwin.appleclang": "ReentrancyGuard.sol/ReentrancyGuard.json"
+          "0.8.20+commit.a1b79de6.Darwin.appleclang": "ReentrancyGuard.sol/ReentrancyGuard.json"
         }
       }
     },
@@ -501,6 +512,7 @@
             "runs": 200
           },
           "metadata": {
+            "useLiteralContent": false,
             "bytecodeHash": "ipfs",
             "appendCBOR": true
           },
@@ -518,7 +530,7 @@
               ]
             }
           },
-          "evmVersion": "london",
+          "evmVersion": "paris",
           "libraries": {}
         }
       },
@@ -530,7 +542,7 @@
       "versionRequirement": "^0.8.0",
       "artifacts": {
         "ERC20": {
-          "0.8.17+commit.8df45f5f.Darwin.appleclang": "ERC20.sol/ERC20.json"
+          "0.8.20+commit.a1b79de6.Darwin.appleclang": "ERC20.sol/ERC20.json"
         }
       }
     },
@@ -545,6 +557,7 @@
             "runs": 200
           },
           "metadata": {
+            "useLiteralContent": false,
             "bytecodeHash": "ipfs",
             "appendCBOR": true
           },
@@ -562,7 +575,7 @@
               ]
             }
           },
-          "evmVersion": "london",
+          "evmVersion": "paris",
           "libraries": {}
         }
       },
@@ -570,7 +583,7 @@
       "versionRequirement": "^0.8.0",
       "artifacts": {
         "IERC20": {
-          "0.8.17+commit.8df45f5f.Darwin.appleclang": "IERC20.sol/IERC20.json"
+          "0.8.20+commit.a1b79de6.Darwin.appleclang": "IERC20.sol/IERC20.json"
         }
       }
     },
@@ -585,6 +598,7 @@
             "runs": 200
           },
           "metadata": {
+            "useLiteralContent": false,
             "bytecodeHash": "ipfs",
             "appendCBOR": true
           },
@@ -602,7 +616,7 @@
               ]
             }
           },
-          "evmVersion": "london",
+          "evmVersion": "paris",
           "libraries": {}
         }
       },
@@ -615,7 +629,7 @@
       "versionRequirement": "^0.8.0",
       "artifacts": {
         "ERC20Burnable": {
-          "0.8.17+commit.8df45f5f.Darwin.appleclang": "ERC20Burnable.sol/ERC20Burnable.json"
+          "0.8.20+commit.a1b79de6.Darwin.appleclang": "ERC20Burnable.sol/ERC20Burnable.json"
         }
       }
     },
@@ -630,6 +644,7 @@
             "runs": 200
           },
           "metadata": {
+            "useLiteralContent": false,
             "bytecodeHash": "ipfs",
             "appendCBOR": true
           },
@@ -647,7 +662,7 @@
               ]
             }
           },
-          "evmVersion": "london",
+          "evmVersion": "paris",
           "libraries": {}
         }
       },
@@ -657,7 +672,7 @@
       "versionRequirement": "^0.8.0",
       "artifacts": {
         "IERC20Metadata": {
-          "0.8.17+commit.8df45f5f.Darwin.appleclang": "IERC20Metadata.sol/IERC20Metadata.json"
+          "0.8.20+commit.a1b79de6.Darwin.appleclang": "IERC20Metadata.sol/IERC20Metadata.json"
         }
       }
     },
@@ -672,6 +687,7 @@
             "runs": 200
           },
           "metadata": {
+            "useLiteralContent": false,
             "bytecodeHash": "ipfs",
             "appendCBOR": true
           },
@@ -689,7 +705,7 @@
               ]
             }
           },
-          "evmVersion": "london",
+          "evmVersion": "paris",
           "libraries": {}
         }
       },
@@ -697,12 +713,12 @@
       "versionRequirement": "^0.8.0",
       "artifacts": {
         "Context": {
-          "0.8.17+commit.8df45f5f.Darwin.appleclang": "Context.sol/Context.json"
+          "0.8.20+commit.a1b79de6.Darwin.appleclang": "Context.sol/Context.json"
         }
       }
     },
     "test/foundry/test.t.sol": {
-      "lastModificationDate": 1689064611218,
+      "lastModificationDate": 1689325590732,
       "contentHash": "3b0ae89054003923f4c8c37962e77578",
       "sourceName": "test/foundry/test.t.sol",
       "solcConfig": {
@@ -712,6 +728,7 @@
             "runs": 200
           },
           "metadata": {
+            "useLiteralContent": false,
             "bytecodeHash": "ipfs",
             "appendCBOR": true
           },
@@ -729,7 +746,7 @@
               ]
             }
           },
-          "evmVersion": "london",
+          "evmVersion": "paris",
           "libraries": {}
         }
       },
@@ -744,13 +761,13 @@
       "versionRequirement": "^0.8.10",
       "artifacts": {
         "test.t": {
-          "0.8.17+commit.8df45f5f.Darwin.appleclang": "test.t.sol/test.t.json"
+          "0.8.20+commit.a1b79de6.Darwin.appleclang": "test.t.sol/test.t.json"
         }
       }
     },
     "test/foundry/unit/DSCEngineTest.t.sol": {
-      "lastModificationDate": 1689172228915,
-      "contentHash": "a63c2c9c17c9aa7deae89003b7cd065d",
+      "lastModificationDate": 1689670972270,
+      "contentHash": "74641a54ad6687f1843aacbd9f86a58a",
       "sourceName": "test/foundry/unit/DSCEngineTest.t.sol",
       "solcConfig": {
         "settings": {
@@ -759,6 +776,7 @@
             "runs": 200
           },
           "metadata": {
+            "useLiteralContent": false,
             "bytecodeHash": "ipfs",
             "appendCBOR": true
           },
@@ -776,7 +794,7 @@
               ]
             }
           },
-          "evmVersion": "london",
+          "evmVersion": "paris",
           "libraries": {}
         }
       },
@@ -798,10 +816,10 @@
         "node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
         "node_modules/@openzeppelin/contracts/utils/Context.sol"
       ],
-      "versionRequirement": "^0.8.17",
+      "versionRequirement": "^0.8.18",
       "artifacts": {
         "DSCEngineTest": {
-          "0.8.17+commit.8df45f5f.Darwin.appleclang": "DSCEngineTest.t.sol/DSCEngineTest.json"
+          "0.8.20+commit.a1b79de6.Darwin.appleclang": "DSCEngineTest.t.sol/DSCEngineTest.json"
         }
       }
     }

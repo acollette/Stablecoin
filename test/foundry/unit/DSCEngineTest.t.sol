@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.17;
+pragma solidity ^0.8.18;
 
 //standard test libs
 import "../../../lib/forge-std/src/Test.sol";
@@ -49,6 +49,22 @@ contract DSCEngineTest is Test {
     }
 
     //////////////////////////
+    // Constructor tests
+    //////////////////////////
+
+    function test_RevertsIfTokenLengthDoesntMatchPriceFeeds() public {
+        address[] memory tokenAddressesTest = new address[](1);
+        address[] memory priceFeedAddressesTest = new address[](2);
+        tokenAddressesTest[0] = WETH;
+        priceFeedAddressesTest[0] = wethPriceFeed;
+        priceFeedAddressesTest[1] = wbtcPriceFeed;
+
+        vm.expectRevert(DSCEngine.DSCEngine__TokenAddressesAndPriceFeedAddressesAmountsDontMatch.selector);
+        new DSCEngine(tokenAddressesTest, priceFeedAddressesTest, address(dsc));
+
+    }
+
+    //////////////////////////
     // Price Tests
     //////////////////////////
 
@@ -56,6 +72,11 @@ contract DSCEngineTest is Test {
         uint256 ethAmount = 10 ether;
         uint256 actualUsd = dscEngine.getUsdValue(WETH, ethAmount);
         emit log_named_uint("USD value:", actualUsd);
+    }
+
+    function test_getTokenAmountFromUsd() public {
+        uint256 usdAmount = 100 ether;
+
     }
 
     //////////////////////////

@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.17;
+pragma solidity ^0.8.18;
 
 import {DecentralizedStablecoin} from "./DecentralizedStablecoin.sol";
 import {ReentrancyGuard} from "@openzeppelin/contracts/security/ReentrancyGuard.sol";
@@ -47,7 +47,7 @@ contract DSCEngine is ReentrancyGuard {
     //////////////////
     uint256 private constant ADDITIONAL_FEED_PRECISION = 1e10;
     uint256 private constant PRECISION = 1e18;
-    uint256 private constant LIQUIDATION_TRESHOLD = 50;
+    uint256 private constant LIQUIDATION_TRESHOLD = 50; // means 200% collateral
     uint256 private constant LIQUIDATION_PRECISION = 100;
     uint256 private constant MIN_HEALTH_FACTOR = 1e18;
     uint256 private constant LIQUIDATION_BONUS = 10; // 10% bonus
