@@ -13,8 +13,8 @@
   },
   "files": {
     "contracts/DSCEngine.sol": {
-      "lastModificationDate": 1689670846133,
-      "contentHash": "82fe0b0b7709b6478b73c71541fac07c",
+      "lastModificationDate": 1690208264884,
+      "contentHash": "16fb4a9009c658de1a0bb52e484155df",
       "sourceName": "contracts/DSCEngine.sol",
       "solcConfig": {
         "settings": {
@@ -766,8 +766,8 @@
       }
     },
     "test/foundry/unit/DSCEngineTest.t.sol": {
-      "lastModificationDate": 1689670972270,
-      "contentHash": "74641a54ad6687f1843aacbd9f86a58a",
+      "lastModificationDate": 1690208733019,
+      "contentHash": "4cc42829f67bbd25f9868765ef8ec30a",
       "sourceName": "test/foundry/unit/DSCEngineTest.t.sol",
       "solcConfig": {
         "settings": {

@@ -17,6 +17,7 @@ contract DSCEngineTest is Test {
     // Collateral addresses
     address WETH = 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2;
     address WBTC = 0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599;
+    address LINK = 0x514910771AF9Ca656af840dff83E8264EcF986CA;
     address[] public tokenAddresses;
 
     // Feed addresses
@@ -26,6 +27,9 @@ contract DSCEngineTest is Test {
 
     // Users
     address public USER = makeAddr("user");
+
+    // Amounts
+    uint256 AMOUNT_COLLATERAL = 1_000 ether;
 
     function setUp() public {
         // setup arrays
@@ -61,7 +65,6 @@ contract DSCEngineTest is Test {
 
         vm.expectRevert(DSCEngine.DSCEngine__TokenAddressesAndPriceFeedAddressesAmountsDontMatch.selector);
         new DSCEngine(tokenAddressesTest, priceFeedAddressesTest, address(dsc));
-
     }
 
     //////////////////////////
@@ -76,7 +79,6 @@ contract DSCEngineTest is Test {
 
     function test_getTokenAmountFromUsd() public {
         uint256 usdAmount = 100 ether;
-
     }
 
     //////////////////////////
@@ -91,5 +93,29 @@ contract DSCEngineTest is Test {
         vm.expectRevert(DSCEngine.DSCEngine__NeedsMoreThanZero.selector);
         dscEngine.depositCollateral(WETH, 0);
         vm.stopPrank();
+    }
+
+    function test_RevertsWithUnapprovedCollateral() public {
+        deal(LINK, USER, 1000 ether);
+        vm.startPrank(USER);
+        vm.expectRevert(DSCEngine.DSCEngine__TokenNotAllowed.selector);
+        dscEngine.depositCollateral(LINK, 1000 ether);
+        vm.stopPrank();
+    }
+
+    modifier depositedCollateral() {
+        vm.startPrank(USER);
+        IERC20(WETH).approve(address(dscEngine), AMOUNT_COLLATERAL);
+        dscEngine.depositCollateral(WETH, AMOUNT_COLLATERAL);
+        vm.stopPrank();
+        _;
+    }
+
+    function test_canDepositCollateralAndGetAccountInfo() public depositedCollateral {
+        (uint256 totalDscMinted, uint256 collateralValueInUSD) = dscEngine.getAccountInformation(USER);
+        uint256 expectedTotalDscMinted = 0;
+        uint256 expectedDepositAmount = dscEngine.getTokenAmountFromUsd(WETH, collateralValueInUSD);
+        assertEq(totalDscMinted, expectedTotalDscMinted);
+        assertEq(AMOUNT_COLLATERAL, expectedDepositAmount);
     }
 }
